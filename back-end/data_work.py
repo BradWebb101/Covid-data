@@ -28,15 +28,23 @@ class data_wrangle():
 
     def get_covid_data(self, country: str) -> list:
             try:
-                url = "https://covid-19-data.p.rapidapi.com/country"
+                url = 'https://covid-19-data.p.rapidapi.com/country'
                 querystring = {'format':'json','name':f'{country}'}
                 headers={
                         'x-rapidapi-host': os.getenv('RAPID_HOST_NAME'),
                         'x-rapidapi-key': os.getenv('RAPID_HOST_KEY')
                         }
                 response = api_request().execute_request(method='GET', url=url, params=querystring, headers=headers)
-                return json.loads(response.text)
+                return json.loads(response.text)[0]
                 
             except requests.exceptions.RequestException as e:
                 print(e)
                 
+    def get_population(self, country):
+        try:
+            url = f'https://restcountries.eu/rest/v2/name/{country}?fullText=true'
+            response = api_request().execute_request(method='GET', url=url)
+            return json.loads(response.text)[0]
+
+        except requests.exceptions.RequestException as e:
+                print(e)

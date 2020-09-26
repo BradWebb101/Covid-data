@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 class country_api_request():
    
@@ -14,8 +15,8 @@ class country_api_request():
             url = 'https://covid-19-data.p.rapidapi.com/help/countries'
             querystring = {"format":"json"}
             headers = {
-                'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
-                'x-rapidapi-key': "1e2d7a5e6fmsh4ec8da9327c7b70p13a418jsna389dcf6ddce"
+                'x-rapidapi-host': os.getenv(RAPID_HOST_NAME),
+                'x-rapidapi-key': os.getenv(RAPID_HOST_KEY)
                 }
             response = requests.request("GET", url, headers=headers, params=querystring)
             total_country_list = json.loads(response.text)

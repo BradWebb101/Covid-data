@@ -21,7 +21,7 @@ class api_request():
             if response.status_code == requests.codes.ok:
                 return json.loads(response.text)
             else:
-                return (f'The following error occurered {response.status_code})
+                return (f'The following error occurered {response.status_code}')
 
         except requests.exceptions.HTTPError as e:
             return "An Http Error occurred:" + repr(e)
@@ -42,7 +42,5 @@ class api_request():
             print('Error code ' + repr(e))
 
 
-if __name__ == "__main__":
-    api_request().request_data_test()
 
 
