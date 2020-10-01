@@ -19,7 +19,7 @@ class dynamo_connect():
             self.db_connection.put_item(TableName=self.name, Item=dictionary)
 
         except exceptions.ParamValidationError as e:
-            print(e)
+            print(repr(e))
 
     def db_get(self, date, country):
         response = self.db_connection.get_item(
@@ -29,3 +29,10 @@ class dynamo_connect():
             }
         )
         return response
+
+    def db_table_exists(self, table_name):
+        response = self.db_connection.list_tables()
+        if table_name in response['TableNames']:
+            return True
+        else:
+            return False 

@@ -3,7 +3,7 @@ import datetime as dt
 import json
 import requests
 import country_list
-from country_list import country_api_request
+
 
 class api_request():
 
