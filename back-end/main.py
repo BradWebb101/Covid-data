@@ -3,13 +3,20 @@ from flask_restful import Api, Resource
 import sqlalchemy as db
 import boto3
 import datetime
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 app = Flask(__name__)
 api = Api(app)
 
+
 class all_data(Resource):
     def get(self):
-        dynamodb = boto3.client('dynamodb')
+        dynamodb = boto3.client('dynamodb', 
+        aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY'),
+        region_name=os.getenv('AWS_DEFAULT_REGION'))
         response = dynamodb.scan(TableName='covid_data')
         return response['Items']
 
@@ -17,7 +24,10 @@ api.add_resource(all_data, '/all_data')
 
 class today(Resource):
     def get(self, country):
-        dynamodb = boto3.client('dynamodb')
+        dynamodb = boto3.client('dynamodb', 
+        aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY'),
+        region_name=os.getenv('AWS_DEFAULT_REGION'))
         response = dynamodb.get_item(
         TableName='covid_data',
         Key={
@@ -34,7 +44,10 @@ api.add_resource(today, '/today/<country>')
 
 class unique_countries(Resource):
     def get(self):
-        dynamodb = boto3.client('dynamodb')
+        dynamodb = boto3.client('dynamodb', 
+        aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY'),
+        region_name=os.getenv('AWS_DEFAULT_REGION'))
         response = dynamodb.scan(
                         TableName='covid_data',
                         AttributesToGet=['country']
