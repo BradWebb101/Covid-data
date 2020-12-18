@@ -1,6 +1,5 @@
 from flask import Flask 
 from flask_restful import Api, Resource
-import sqlalchemy as db
 import boto3
 import datetime
 from dotenv import load_dotenv
@@ -9,7 +8,6 @@ import os
 load_dotenv()
 app = Flask(__name__)
 api = Api(app)
-
 
 class all_data(Resource):
     def get(self):

@@ -38,6 +38,6 @@ class constructor():
         output_dict['population'] = {'N':str(self.population_dict['population'])}
         output_dict['deaths_per_100k'] = {'N':str((int(output_dict['todays_deaths']['N'])/int(output_dict['population']['N']))*100000)}
         output_dict['cases_per_100k'] = {'N':str((int(output_dict['todays_cases']['N'])/int(output_dict['population']['N']))*100000)}
-        output_dict['TTL'] = {'N': str((datetime.datetime.now() + datetime.timedelta(days=8)).timestamp() * 1000)}
+        output_dict['TTL'] = {'N': str((datetime.datetime.now() + datetime.timedelta(days=8)).timestamp())}
 
         return output_dict
