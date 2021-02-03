@@ -1,15 +1,16 @@
-# Personal Project Portfolio
+# Covid data API
 
-This project is a project using Covid data from Rapid API to build a dashboard showing covid rates around Europe.
-
-## Project is still under construction
+This project is a project using Covid data from Rapid API to build a dashboard showing covid rates around Europe. This project is not yet complete, please not that the RestAPI works, currently building front end with React.
 
 ## Project Example
 
 <!-- [Website](https://bradwebb101.com) -->
-TBA
+TBA - Front end not yet complete
 
 ## How is it built
+
+### Front end 
+- Still to complete
 
 ### Back end
 
