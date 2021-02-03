@@ -1,6 +1,6 @@
 # Covid data API
 
-This project is a project using Covid data from Rapid API to build a dashboard showing covid rates around Europe. This project is not yet complete, please not that the RestAPI works, currently building front end with React.
+This project is a project using Covid data from Rapid API to build a dashboard showing covid rates around Europe. This project is not yet complete, please note that the RestAPI works, currently building front end with React.
 
 ## Project Example
 
@@ -15,8 +15,12 @@ TBA - Front end not yet complete
 ### Back end
 
 - The back end is written in Python, using Flask for a RestAPI. Using DynamoDB as the DB.
-- The RestAPI is hosted on a EC2 instance, on AWS cloud. 
-  
+- The RestAPI is hosted on a EC2 instance, on AWS cloud.
+
+## Infrastructure
+
+![infrastrucure](./readme_images/infrastructure.png)
+
 ## Downloading and usage
 
 ### Back-end
